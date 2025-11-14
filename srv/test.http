@@ -1,0 +1,87 @@
+GET http://localhost:4004/odata/v4/employee/EmployeeSet
+
+
+
+### EmployeeSet
+# @name EmployeeSet_GET
+GET http://localhost:4004/odata/v4/employee/EmployeeSet?$top=15&skip=2
+
+###
+GET http://localhost:4004/odata/v4/employee/EmployeeSet
+
+
+###
+GET http://localhost:4004/odata/v4/employee/EmployeeSet?$filter=startswith(nameFirst,'S')
+
+
+###
+GET http://localhost:4004/odata/v4/employee/EmployeeSet?$orderby=salaryAmount desc&$top=2
+
+###
+POST http://localhost:4004/odata/v4/employee/EmployeeSet
+Content-Type: application/json
+
+{
+  "nameFirst": "John",
+  "nameLast": "Doe",
+  "loginName": "john.doe",
+  "salaryAmount": 40000,
+  "currency_code": "USD"
+}
+
+###
+POST http://localhost:4004/odata/v4/employee/EmployeeSet
+Content-Type: application/json
+
+{
+  "nameFirst": "Alice",
+  "nameLast": "Brown",
+  "loginName": "alice.brown",
+  "salaryAmount": 80000,
+  "currency_code": "USD"
+}
+
+###
+POST http://localhost:4004/odata/v4/employee/EmployeeSet
+Content-Type: application/json
+
+{
+  "nameFirst": "Mark",
+  "nameLast": "Miller",
+  "loginName": "mark.miller",
+  "salaryAmount": 45000,
+  "currency_code": "EUR"
+}
+
+
+###
+PATCH http://localhost:4004/odata/v4/employee/EmployeeSet('<ID>')
+Content-Type: application/json
+
+{
+  "nameLast": "UpdatedLast",
+  "salaryAmount": 55000
+}
+
+
+
+###
+PATCH http://localhost:4004/odata/v4/employee/EmployeeSet('<ID>')
+Content-Type: application/json
+
+{
+  "loginName": "new.login",
+  "salaryAmount": 65000
+}
+
+
+###
+DELETE http://localhost:4004/odata/v4/employee/EmployeeSet('<ID>')
+
+
+###
+GET http://localhost:4004/odata/v4/employee/EmployeeSet?$filter=startswith(nameFirst,'S')
+
+###
+
+DELETE http://localhost:4004/odata/v4/employee/EmployeeSet('<ID>')
